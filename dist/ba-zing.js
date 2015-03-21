@@ -30,7 +30,7 @@
 	
 	'use strict';
 	
-	var _key = 'Au3mI6WYA4VT1zNNQn27ZpPqefuj-FIMKDU3ZAgf26i6MtpABAFHDWpHo7usyeMn';
+	var _key = 'your key here';
 	var _map = null;
 	var _directionsManager;
 	var _directionsErrorEventObj;
