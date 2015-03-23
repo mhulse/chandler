@@ -42,9 +42,29 @@
 			
 			// Initialize the map plugin:
 			var map = MAP.init({
+				
+				//id: 'map',
+				
+				// Everything here gets passed directly to `Microsoft.Maps.Map()`:
 				maps: {
-					credentials: 'ApSa-HjCPNL3RbzNOsyMdDwzi7DRKvKCj8HQDEolgpBELf01PqP1cW2r1LvJanPM'
+					
+					// Setup:
+					credentials: 'ApSa-HjCPNL3RbzNOsyMdDwzi7DRKvKCj8HQDEolgpBELf01PqP1cW2r1LvJanPM',
+					enableClickableLogo: false,
+					enableSearchLogo: false,
+					showDashboard: true,
+					showMapTypeSelector: false,
+					showScalebar: false,
+					disablePanning: true,
+					disableZooming: true,
+					
+					// View options:
+					center: new Microsoft.Maps.Location(44.04550, -123.02376),
+					mapTypeId: Microsoft.Maps.MapTypeId.road,
+					zoom: 7
+					
 				}
+				
 			});
 			
 			// Immediately update the map to show its first set of directions:

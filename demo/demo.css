@@ -6,11 +6,9 @@
 	box-sizing: border-box;
 }
 
-html,
-body { overflow-x: hidden; }
 html {
 	height: 100%;
-	overflow-y: scroll;
+	overflow: hidden;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 	position: relative;
 }
@@ -23,21 +21,10 @@ body {
 	padding: 0;
 }
 
-.area {
-	width: 50%;
-	height: 100%;
-	position: relative;
-}
-#map {
-	float: left;
-	display: inline;
-}
-#directions {
-	float: right;
-	display: inline;
-}
-
 #buttons {
+	background: rgba(0, 0, 0, .2);
+	padding: 5px;
+	border-radius: 5px;
 	position: absolute;
 	top: 10px;
 	right: 10px;
@@ -46,5 +33,21 @@ body {
 
 #buttons button {
 	display: block;
-	margin-bottom: 3px;
+	margin-bottom: 5px;
+}
+
+#buttons > :last-child { margin-bottom: 0; }
+
+.area {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+
+#map { right: 50%; }
+
+#directions {
+	left: 50%;
+	overflow-y: scroll;
 }

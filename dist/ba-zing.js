@@ -37,28 +37,7 @@
 	var _directionsUpdatedEventObj;
 	var _directionsOptions;
 	var $defaults = {
-		
-		id: 'map',
-		
-		maps: {
-			
-			// Setup:
-			credentials: null,
-			enableClickableLogo: false,
-			enableSearchLogo: false,
-			showDashboard: true,
-			showMapTypeSelector: false,
-			showScalebar: false,
-			disablePanning: true,
-			disableZooming: true,
-			
-			// View options:
-			center: new Microsoft.Maps.Location(44.04550, -123.02376),
-			mapTypeId: Microsoft.Maps.MapTypeId.road,
-			zoom: 7
-			
-		}
-		
+		id: 'map'
 	};
 	
 	MAP.init = function($options) {
@@ -83,7 +62,7 @@
 	
 	MAP.directions = function($options) {
 		
-		if (Object.keys($options).length) { //returns 0 if empty or an integer > 0 if non-empty
+		if (Object.keys($options).length) { // Returns 0 if empty or an integer > 0 if non-empty.
 			
 			_directionsOptions = $options;
 			
