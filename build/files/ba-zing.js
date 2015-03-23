@@ -40,7 +40,7 @@
 		
 		_map = new Microsoft.Maps.Map(
 			document.getElementById($settings.id),
-			$settings.maps
+			$settings.map
 		);
 		
 		return _map; // For the convenience factor.

@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2015 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 0.1.0
- * @date 2015/03/22
+ * @date 2015/03/23
  */
 
 /* jshint unused:vars */
@@ -53,7 +53,7 @@
 		
 		_map = new Microsoft.Maps.Map(
 			document.getElementById($settings.id),
-			$settings.maps
+			$settings.map
 		);
 		
 		return _map; // For the convenience factor.
