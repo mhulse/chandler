@@ -1,0 +1,21 @@
+{
+  "name": "chandler",
+  "version": "0.1.0",
+  "main": [
+    "./chandler/chandler.js"
+  ],
+  "ignore": [
+    "build",
+    "demo",
+    "**/.*",
+    "**/*.md",
+    "**/*.json"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "keywords": [
+    "bing",
+    "javascript",
+    "maps"
+  ]
+}
