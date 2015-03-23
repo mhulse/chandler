@@ -1,6 +1,6 @@
 # Ba-zing!
 
-**A simple Bing Maps v7 plugin.**
+**A JavaScript “plugin” wrapped around the Bing maps API; it’s main feature is the handling of map directions via jQuery and/or HTML5 data attributes.**
 
 ---
 
