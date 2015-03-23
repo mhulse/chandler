@@ -124,7 +124,7 @@ module.exports = function(grunt) {
 			
 			init : [
 				
-				'../dist/**/*',
+				'../<%= pkg.name %>/**/*',
 				
 			],
 			
@@ -157,7 +157,7 @@ module.exports = function(grunt) {
 				
 				files : {
 					
-					'../dist/<%= pkg.name %>.min.js': [
+					'../<%= pkg.name %>/<%= pkg.name %>.min.js': [
 						
 						'./files/<%= pkg.name %>.js',
 						
@@ -194,7 +194,7 @@ module.exports = function(grunt) {
 					
 				],
 				
-				dest : '../dist/<%= pkg.name %>.js',
+				dest : '../<%= pkg.name %>/<%= pkg.name %>.js',
 				
 			},
 			
