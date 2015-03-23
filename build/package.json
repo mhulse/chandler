@@ -1,12 +1,12 @@
 {
-  "title": "Ba-zing!",
-  "name": "ba-zing",
+  "title": "Chandler Bing (Maps)!",
+  "name": "chandler",
   "description": "...",
   "version": "0.1.0",
-  "homepage": "https://github.com/mhulse/ba-zing",
+  "homepage": "https://github.com/mhulse/chandler",
   "repository": {
     "type": "git",
-    "url": "git://github.com/mhulse/ba-zing.git"
+    "url": "git://github.com/mhulse/chandler.git"
   },
   "author": {
     "name": "Micky Hulse",

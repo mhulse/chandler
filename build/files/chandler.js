@@ -1,16 +1,3 @@
-/**
- * Ba-zing!
- * ...
- *
- * @author Micky Hulse
- * @link http://mky.io
- * @docs https://github.com/mhulse/ba-zing
- * @copyright Copyright (c) 2015 Micky Hulse.
- * @license Released under the Apache License, Version 2.0.
- * @version 0.1.0
- * @date 2015/03/23
- */
-
 /* jshint unused:vars */
 /* global Microsoft, console */
 
@@ -20,14 +7,14 @@
  * Patterns used: "closure", "alias" and "namespace extension".
  *
  * @see http://stackoverflow.com/a/12774919/922323
- * @param {object} MAP
+ * @param {object} CHANDLER
  * @param {object} window
  * @param {object} document
  * @param {undefined} undefined
  * @return void
  */
 
-(function(MAP, window, document, undefined) {
+(function(CHANDLER, window, document, undefined) {
 	
 	'use strict';
 	
@@ -40,7 +27,7 @@
 		id: 'map'
 	};
 	
-	MAP.init = function($options) {
+	CHANDLER.init = function($options) {
 		
 		var $settings;
 		
@@ -60,7 +47,7 @@
 		
 	};
 	
-	MAP.directions = function($options) {
+	CHANDLER.directions = function($options) {
 		
 		if (Object.keys($options).length) { // Returns 0 if empty or an integer > 0 if non-empty.
 			
@@ -290,4 +277,4 @@
 		
 	};
 	
-}((window.MAP = window.MAP || {}), window, document, undefined));
+}((window.CHANDLER = window.CHANDLER || {}), window, document, undefined));

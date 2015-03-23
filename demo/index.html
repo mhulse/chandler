@@ -3,7 +3,8 @@
 <head>
 	
 	<meta charset="utf-8">
-	<title>Ba-zing! A simple Bing Maps v7 plugin.</title>
+	<title>Chandler Bing (Maps)!</title>
+	<meta name="description" content="A JavaScript “plugin” wrapped around the Bing maps API; it’s main feature is the handling of map directions via jQuery and/or HTML5 data attributes.">
 	
 	<link rel="stylesheet" href="demo.css">
 	
@@ -21,7 +22,7 @@
 	
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script src="//ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0"></script>
-	<script src="../dist/ba-zing.min.js"></script>
+	<script src="../dist/chandler.min.js"></script>
 	
 	<script>
 		
@@ -41,7 +42,7 @@
 				.appendTo('#buttons');
 			
 			// Initialize the map plugin:
-			var map = MAP.init({
+			var map = CHANDLER.init({
 				
 				//id: 'map',
 				
@@ -73,7 +74,7 @@
 			});
 			
 			// Immediately update the map to show its first set of directions:
-			MAP.directions({
+			CHANDLER.directions({
 				from: 'Eugene, Oregon',
 				to: 'New York, New York'
 			});
@@ -83,7 +84,7 @@
 				
 				var $this = $(this);
 				
-				MAP.directions({
+				CHANDLER.directions({
 					from: $this.data('map-from'),
 					to: $this.data('map-to')
 				});
