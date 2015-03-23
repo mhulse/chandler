@@ -57,14 +57,19 @@
 			z-index: 999;
 		}
 		
+		#buttons button {
+			display: block;
+			margin-bottom: 3px;
+		}
+		
 	</style>
 	
 </head>
 <body>
 	
 	<div id="buttons">
-		<button class="map-directions" data-map-from='{ "address": "San Francisco, CA" }' data-map-to='{ "address": "Eugene, Oregon" }'>Switch</button>
-		<button class="map-directions" data-map-from='{ "address": "Springfield, Oregon", "lat": 44.04624, "lon": -123.02203 }' data-map-to='{ "address": "Portland, Oregon", "lat": 45.52306, "lon": -122.67648 }'>Switch</button>
+		<button class="map-directions" data-map-from='{ "address": "San Francisco, CA" }' data-map-to='{ "address": "Eugene, Oregon" }'>Change</button>
+		<button class="map-directions" data-map-from='{ "address": "Springfield, Oregon", "lat": 44.04624, "lon": -123.02203 }' data-map-to='{ "address": "Portland, Oregon", "lat": 45.52306, "lon": -122.67648 }'>Change</button>
 	</div>
 	
 	<div id="map" class="area"></div>
@@ -83,15 +88,29 @@
 			
 			'use strict';
 			
-			var map = MAP.init();
+			// Create button, with directions, dynamically:
+			$('<button />', {
+				'class': 'map-directions',
+				text: 'Change'
+			})
+				.data('map-from', 'Eugene, Oregon')
+				.data('map-to', 'Provo, Utah')
+				.appendTo('#buttons');
 			
-			//console.dir(map);
+			// Initialize the map plugin:
+			var map = MAP.init({
+				maps: {
+					credentials: 'ApSa-HjCPNL3RbzNOsyMdDwzi7DRKvKCj8HQDEolgpBELf01PqP1cW2r1LvJanPM'
+				}
+			});
 			
+			// Immediately update the map to show its first set of directions:
 			MAP.directions({
 				from: 'Eugene, Oregon',
 				to: 'New York, New York'
 			});
 			
+			// Handle button change directions:
 			$('.map-directions').on('click', function() {
 				
 				var $this = $(this);
@@ -103,6 +122,7 @@
 				
 			});
 			
+			// Re-load/size map based on viewport change:
 			$(window).on('load resize', function() {
 				
 				var $this = $(this);

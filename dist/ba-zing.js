@@ -8,9 +8,10 @@
  * @copyright Copyright (c) 2015 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 0.1.0
- * @date 2015/03/20
+ * @date 2015/03/22
  */
 
+/* jshint unused:vars */
 /* global Microsoft, console */
 
 /**
@@ -30,38 +31,50 @@
 	
 	'use strict';
 	
-	var _key = 'your key here';
 	var _map = null;
 	var _directionsManager;
 	var _directionsErrorEventObj;
 	var _directionsUpdatedEventObj;
 	var _directionsOptions;
-	
-	MAP.init = function(lat, lon) {
+	var $defaults = {
 		
-		// Function argument defaults? Use "Springfield, Oregon" as a default:
-		lat = ((typeof lat !== 'undefined') ? lat : 44.04550);
-		lon = ((typeof lon !== 'undefined') ? lon : -123.02376);
+		id: 'map',
+		
+		maps: {
+			
+			// Setup:
+			credentials: null,
+			enableClickableLogo: false,
+			enableSearchLogo: false,
+			showDashboard: true,
+			showMapTypeSelector: false,
+			showScalebar: false,
+			disablePanning: true,
+			disableZooming: true,
+			
+			// View options:
+			center: new Microsoft.Maps.Location(44.04550, -123.02376),
+			mapTypeId: Microsoft.Maps.MapTypeId.road,
+			zoom: 7
+			
+		}
+		
+	};
+	
+	MAP.init = function($options) {
+		
+		var $settings;
+		
+		$options = (_isObject($options) ? $options : {});
+		
+		// Merge optins and defaults.
+		$settings = _deepMerge($defaults, $options);
+		
+		console.log($settings);
 		
 		_map = new Microsoft.Maps.Map(
-			document.getElementById('map'),
-			{
-				
-				// Setup:
-				credentials: _key,
-				enableClickableLogo: false,
-				enableSearchLogo: false,
-				showDashboard: true,
-				showMapTypeSelector: false,
-				showScalebar: false,
-				disablePanning: true,
-				disableZooming: true,
-				
-				// View options:
-				center: new Microsoft.Maps.Location(lat, lon),
-				zoom: 8
-				
-			}
+			document.getElementById($settings.id),
+			$settings.maps
 		);
 		
 		return _map; // For the convenience factor.
@@ -207,6 +220,98 @@
 		console.log('Calculating directions...');
 		
 		_directionsManager.calculateDirections();
+		
+	};
+	
+	/**
+	 * Merge two objects x and y deeply, returning a new merged object with the
+	 * elements from both x and y. If an element at the same key is present for
+	 * both x and y, the value from y will appear in the result. The merge is
+	 * immutable, so neither x nor y will be modified. The merge will also
+	 * merge arrays and array values.
+	 *
+	 * @see https://github.com/KyleAMathews/deepmerge
+	 */
+	
+	var _deepMerge = function (target, src) {
+		
+		var array = Array.isArray(src);
+		var dst = (array && [] || {});
+		
+		if (array) {
+			
+			target = target || [];
+			
+			dst = dst.concat(target);
+			
+			src.forEach(function(e, i) {
+				
+				if (typeof dst[i] === 'undefined') {
+					
+					dst[i] = e;
+					
+				} else if (typeof e === 'object') {
+					
+					dst[i] = _deepMerge(target[i], e);
+					
+				} else {
+					
+					if (target.indexOf(e) === -1) {
+						
+						dst.push(e);
+						
+					}
+					
+				}
+				
+			});
+			
+		} else {
+			
+			if (target && (typeof target === 'object')) {
+				
+				Object.keys(target).forEach(function (key) {
+					
+					dst[key] = target[key];
+					
+				});
+				
+			}
+			
+			Object.keys(src).forEach(function (key) {
+				
+				if ((typeof src[key] !== 'object') || ( ! src[key])) {
+					
+					dst[key] = src[key];
+					
+				} else {
+					
+					if ( ! target[key]) {
+						
+						dst[key] = src[key];
+						
+					} else {
+						
+						dst[key] = _deepMerge(target[key], src[key]);
+						
+					}
+					
+				}
+				
+			});
+			
+		}
+		
+		return dst;
+		
+	};
+	
+	// http://stackoverflow.com/a/27495801/922323
+	var _isObject = function(obj) {
+		
+		var type = typeof obj;
+		
+		return type === 'function' || type === 'object' && !!obj;
 		
 	};
 	
