@@ -21,7 +21,7 @@ $ git clone https://github.com/USER/REPO.git
 ... and navigate to:
 
 ```bash
-$ cd REPO/source/
+$ cd REPO/build/
 ```
 
 ## Install, or update, dependencies:
@@ -72,7 +72,7 @@ Visit the demo page:
 
 ## Edit:
 
-At this point, you can modify any of the files, especially the ones found in the `source/files/` directory.
+At this point, you can modify any of the files, especially the ones found in the `build/files/` directory.
 
 ## That it?
 

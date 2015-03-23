@@ -88,17 +88,13 @@
 	
 	var _createDirectionsManager = function() {
 		
-		var displayMessage;
-		
 		if ( ! _directionsManager) {
 			
 			_directionsManager = new Microsoft.Maps.Directions.DirectionsManager(_map);
-			displayMessage = 'Directions Module loaded\n';
-			displayMessage += 'Directions Manager loaded';
+			
+			console.log('Directions Module/Manager loaded!');
 			
 		}
-		
-		console.log(displayMessage);
 		
 		_directionsManager.resetDirections();
 		

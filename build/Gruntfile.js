@@ -147,6 +147,12 @@ module.exports = function(grunt) {
 					
 					banner : '<%= banner.short %>',
 					
+					compress : {
+						
+						drop_console : true,
+						
+					},
+					
 				},
 				
 				files : {
